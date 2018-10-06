@@ -19,7 +19,7 @@ class Weather extends React.Component {
   render() {
     return (<div>
       <button onClick={this.onBtnClick}>Press this button</button>
-      <h1>Рассвет на Гавайях в... {this.state.result}</h1>
+      <h1>Закат на Гавайях в... {this.state.result}</h1>
     </div>)
   }
 }
