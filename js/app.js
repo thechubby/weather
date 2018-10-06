@@ -1,7 +1,7 @@
 class Weather extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { data: null, result: null};
+    this.state = { data: null, result: '"вычисляется"'};
     this.onBtnClick = this.onBtnClick.bind(this);
   }
 
@@ -12,14 +12,14 @@ class Weather extends React.Component {
     })
     .then((value)=>{this.state.data = value
     })
-    this.result = this.state.data.query.results.channel.astronomy.sunset
-    console.log(this.result)
+    this.setState({result: this.state.data.query.results.channel.astronomy.sunset})
+
   }
 
   render() {
     return (<div>
       <button onClick={this.onBtnClick}>Press this button</button>
-      <h1>Рассвет на Гавайях в {this.result}</h1>
+      <h1>Рассвет на Гавайях в... {this.state.result}</h1>
     </div>)
   }
 }
